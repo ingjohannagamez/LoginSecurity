@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Hello World!</title>
+</head>
+<body>
+	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Cerrar Sesion" />
+	</form>
+	<h1>
+		<!-- <a th:href="@{/admin}"> admin</a> | <a th:href="@{/user}"> user</a> -->
+	</h1>
+	<!-- <h1><span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" >esto solo aparece con admin</span></h1> -->
+	<h2>Menu</h2>
+	<ul>
+		<li><a th:href="@{/admin}"> admin</a></li>
+		<li><a th:href="@{/user}"> user</a></li>
+	</ul>
+</body>
+</html>
