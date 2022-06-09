@@ -10,14 +10,11 @@
 	<form th:action="@{/logout}" method="post">
 		<input type="submit" value="Cerrar Sesion" />
 	</form>
-	<h1>
-		<!-- <a th:href="@{/admin}"> admin</a> | <a th:href="@{/user}"> user</a> -->
-	</h1>
-	<!-- <h1><span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" >esto solo aparece con admin</span></h1> -->
+	
 	<h2>Menu</h2>
 	<ul>
-		<li><a th:href="@{/admin}"> admin</a></li>
-		<li><a th:href="@{/user}"> user</a></li>
+		<li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a th:href="@{/admin}"> admin</a></li>
+		<li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_USER')"><a th:href="@{/user}"> user</a></li>
 	</ul>
 </body>
 </html>

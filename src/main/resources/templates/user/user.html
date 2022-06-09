@@ -1,1 +1,15 @@
-<h1>User Yeah</h1>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>User</h1>
+			<div th:inline="text">Hola '[[${#httpServletRequest.remoteUser}]]', tu SI tienes permiso para acceder a esta página.</div>
+		</div>
+	</div>
+</body>
+</html>
